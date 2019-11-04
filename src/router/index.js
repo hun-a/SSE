@@ -4,6 +4,7 @@ const controller = require('../controller');
 const router = Router();
 
 router.post('/', controller.create);
+router.get('/notifier', controller.notifier);
 router.put('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 router.get('/:id', controller.select);
