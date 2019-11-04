@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<head>
+  <title>SSE</title>
+</head>
+<body>
+  <script>
+    const sseSource = new EventSource('http://localhost:4000/notifier');
+
+    sseSource.addEventListener('message', e => {
+      document.body.innerHTML += e.data + '<br>';
+    });
+  </script>
+</body>
+</html>
