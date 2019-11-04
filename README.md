@@ -1,6 +1,6 @@
 # What's the SSE?
 
-- Server Sent Events
+- [Server Sent Events](https://www.w3.org/TR/2009/WD-eventsource-20090421/)
 
 # What's this?
 
@@ -11,8 +11,8 @@
 - Clone this repo & Install the dependencies & Run
 
 ```
-$ git clone https://github.com/hun-a/SSE.git
-$ cd SSE && npm i && npm run dev
+$ git clone https://github.com/hun-a/posting-notification-with-sse.git
+$ cd posting-notification-with-sse && npm i && npm run dev
 ```
 
 - Open the [client](./client/index.html) on your web browser.
