@@ -4,7 +4,7 @@ const create = (title, contents, user) => new Promise((resolve, reject) => {
   db.run(
     `INSERT INTO post (title, contents, user, timestamp) VALUES (?, ?, ?, ?)`,
     [title, contents, user, Date.now()],
-    err => err ? reject(err) : resolve()
+    function(err) { return err ? reject(err) : resolve(this.lastID) }
   );
 });
 
@@ -25,7 +25,7 @@ const destroy = id => new Promise((resolve, reject) => {
 });
 
 const select = id => new Promise((resolve, reject) => {
-  db.each(
+  db.all(
     `SELECT * FROM post WHERE id = ?`,
     [id],
     (err, row) => err ? reject(err) : resolve(row)
