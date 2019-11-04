@@ -10,7 +10,7 @@ const create = (title, contents, user) => new Promise((resolve, reject) => {
 
 const update = (id, title, contents, user) => new Promise((resolve, reject) => {
   db.run(
-    `UPDATE post SET title = ?, contents = ?, user = ? timestamp = ? WHERE id = ?`,
+    `UPDATE post SET title = ?, contents = ?, user = ?, timestamp = ? WHERE id = ?`,
     [title, contents, user, Date.now(), id],
     err => err ? reject(err) : resolve()
   )
