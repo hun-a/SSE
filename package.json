@@ -1,0 +1,29 @@
+{
+  "name": "SSE",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "SSE": "www.js"
+  },
+  "scripts": {
+    "dev": "nodemon --inspect bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hun-a/SSE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hun-a/SSE/issues"
+  },
+  "homepage": "https://github.com/hun-a/SSE#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
+}
