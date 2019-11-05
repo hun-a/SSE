@@ -6,7 +6,7 @@
   <script>
     const sseSource = new EventSource('http://localhost:4000/notifier');
 
-    sseSource.addEventListener('message', e => {
+    sseSource.addEventListener('POSTING', e => {
       document.body.innerHTML += e.data + '<br>';
     });
   </script>

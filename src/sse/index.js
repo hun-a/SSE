@@ -1,32 +1,32 @@
-const EventEmitter = require('events');
+const SseStream = require('ssestream');
+const PubSub = require('pubsub-js');
 
-module.exports = class SSE extends EventEmitter {
-  constructor() {
-    super();
+module.exports = class SSE {
+  constructor(topic) {
+    this.topic = topic;
   }
 
-  call(id, type) {
-    this.emit('change', { id, type, timestamp: Date.now() });
+  detect(id, type) {
+    PubSub.publish(this.topic, { id, type, timestamp: Date.now() });
   }
 
   register(req, res) {
     /**
-     * format
+     * Data format
      * {
      *  id: posting ID,
      *  type: CREATE or UPDATE or DELETE
      *  timestamp: Unix Epoch timestamp
      * }
      */
-    res.writeHead(200, {
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      Connection: 'keep-alive'
+    const sse = new SseStream(req);
+    sse.pipe(res);
+    PubSub.subscribe(this.topic, (event, data) => {
+      sse.write({ event, data });
     });
-    res.write('\n');
 
-    this.on('change', data => {
-      res.write(`data: ${JSON.stringify(data)}\n\n`);
+    res.on('close', () => {
+      sse.unpipe(res);
     });
   }
 };
