@@ -16,6 +16,7 @@ $ cd posting-notification-with-sse && npm i && npm run dev
 ```
 
 - Open the [client](./client/index.html) on your web browser.
+  - Please replace the `INPUT_YOUR_API_ENDPOINT_HERE` to your valid API endpoints on [index.html](./client/index.html)
 
 - If you execute `create`, `update`, `delete` API as below specifications, you can see the notification on your web browser.
 
