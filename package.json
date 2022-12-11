@@ -22,7 +22,7 @@
   "homepage": "https://github.com/hun-a/SSE#readme",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "pubsub-js": "^1.7.0",
     "sqlite3": "^4.1.0",
     "ssestream": "^1.0.1"
